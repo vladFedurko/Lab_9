@@ -52,8 +52,7 @@ http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
             <rtexprvalue>true</rtexprvalue>
         </attribute>
         <attribute>
-            <description>Задаѐт имя переменной, куда будет помещѐн
-                результат</description>
+            <description>Задаѐт имя переменной, куда будет помещѐн результат</description>
             <name>var</name>
             <required>true</required>
             <rtexprvalue>false</rtexprvalue>
@@ -102,5 +101,11 @@ http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
             <required>true</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
+    </tag>
+    <tag>
+        <description>Зацензуривает плохие слова</description>
+        <name>censor</name>
+        <tag-class>tag.Censoring</tag-class>
+        <body-content>scriptless</body-content>
     </tag>
 </taglib>

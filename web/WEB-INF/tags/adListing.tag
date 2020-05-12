@@ -3,6 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="my" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="ad" uri="http://tag/ad" %>
 <%-- Коллекция объявлений для показа --%>
 <%@attribute name="adListing" required="true" rtexprvalue="true"
              type="java.util.AbstractCollection" %>
@@ -68,7 +69,7 @@
         <%-- Вывести тему объявления, являющуюся
         гиперссылкой на страницу детального просмотра объявления --%>
         <a href="<c:url value="/viewAd.jsp"><c:param
-            name="id" value="${ad.id}" /></c:url>"><c:out value="${ad.subject}"/></a>
+            name="id" value="${ad.id}" /></c:url>"><ad:censor><c:out value="${ad.subject}"/></ad:censor></a>
         <%-- Кнопки редактирования / удаления объявлений
         показываются только в случае включенного режима редактирования --%>
         <c:if test="${editMode==true}">
@@ -77,7 +78,7 @@
         </c:if>
         </td>
         <%-- Вывести автора объявления --%>
-        <td><c:out value="${ad.author.name}"/></td>
+        <td><ad:censor><c:out value="${ad.author.name}"/></ad:censor></td>
         <%-- Вывести дату последней модификации объявления --%>
         <td><fmt:formatDate pattern="hh:mm:ss dd-MM-yyyy"
         value="${ad.lastModifiedDate}" /></td>

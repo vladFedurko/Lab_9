@@ -4,6 +4,7 @@ import entity.Ad;
 import entity.AdList;
 import entity.UserList;
 import helper.AdListHelper;
+import helper.ForbiddenWordsListHelper;
 import helper.UserListHelper;
 
 import javax.servlet.ServletConfig;
@@ -29,6 +30,9 @@ public class StartupServlet extends HttpServlet {
         // Сохранить список объявлений в контексте сервлета
         // (для JSP это тождественно равно applicationContext)
         getServletContext().setAttribute("ads", adList);
+
+        getServletContext().setAttribute("words", ForbiddenWordsListHelper.readWordsList(getServletContext()));
+
         for (Ad ad: adList.getAds()) {
             // Т.к. в сообщениях изначально присутствует только id автора, для удобства установим ссылки
             ad.setAuthor(userList.findUser(ad.getAuthorId()));

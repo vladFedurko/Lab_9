@@ -24,8 +24,7 @@
              sort="${sessionScope.sort}" dir="${sessionScope.dir}" />
   <%-- Показать объявления без возможности
   редактирования --%>
-  <my:adListing adListing="${adListing}"
-                editMode="false" />
+    <my:adListing adListing="${adListing}" editMode="false" />
 </jsp:attribute>
   <jsp:attribute name="rightColumnBody">
 <%-- Содержание правой колонки передаѐтся как атрибут

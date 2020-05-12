@@ -1,7 +1,6 @@
 package helper;
 
 import entity.AdList;
-
 import javax.servlet.ServletContext;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
